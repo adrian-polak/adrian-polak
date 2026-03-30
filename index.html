@@ -1,18 +1,165 @@
-<!doctype html>
-<html>
-  <head>
-    <title>Adrian Polak | Graphic Design</title>
-    <link rel="stylesheet" href="styles.css">
-  </head>
-  <body>
-    <h1>Adrian Polak</h1>
-    <p>Graphic designer efficient in the following tools:</p>
-    <ul>
-      <li>Photoshop</li>
-      <li>InDesign</li>
-      <li>Illustrator</li>
-      <li>Blender</li>
-    </ul>
-    <p>Open for assignments. You can contact me via this <a href="mailto:apolak@protonmail.com">email</a>.</p>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Adrian — Graphic Designer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div id="cur"></div>
+  <div id="cur-ring"></div>
+
+  <!-- LEFT PANEL -->
+  <div class="left">
+    <a href="#" class="logo">AD</a>
+
+    <div class="left-body">
+      <p class="greeting">Hey there — I'm Adrian</p>
+      <h1 class="hero-title">
+        GRAPHIC<br>
+        DESIGNER<span class="highlight">,</span><br>
+        CREATIVE
+      </h1>
+      <p class="bio">
+        My approach blends bold visual thinking with technical precision — from brand identities and editorial layouts to 3D and motion. Every project is a chance to push what's possible.
+      </p>
+      <div class="tools">
+        <span class="tool-tag">Illustrator</span>
+        <span class="tool-tag">Photoshop</span>
+        <span class="tool-tag">InDesign</span>
+        <span class="tool-tag">Blender</span>
+        <span class="tool-tag">Figma</span>
+      </div>
+      <div class="cta-wrap">
+        <a href="#" class="btn-cta">
+          <span>Work with me</span>
+          <span class="arr">→</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="socials">
+      <a href="#">Instagram</a>
+      <a href="#">Behance</a>
+      <a href="#">LinkedIn</a>
+    </div>
+
+    <span class="v-label">Portfolio 2025</span>
+  </div>
+
+  <!-- RIGHT PANEL -->
+  <div class="right" id="rightPanel">
+    <div class="cards-row">
+
+      <!-- Card 1 -->
+      <div class="card c1">
+        <div class="card-img">
+          <div class="card-img-inner"></div>
+          <div class="card-overlay">
+            <div class="overlay-btn">View Project</div>
+          </div>
+        </div>
+        <div class="card-info">
+          <p class="card-title">Neon Roots</p>
+          <p class="card-tags">Branding, Art Direction,<br>Print Design</p>
+          <a href="#" class="card-view">View <span class="v-arr">→</span></a>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card c2">
+        <div class="card-img">
+          <div class="card-img-inner"></div>
+          <div class="card-overlay">
+            <div class="overlay-btn">View Project</div>
+          </div>
+        </div>
+        <div class="card-info">
+          <p class="card-title">Horizon Drop</p>
+          <p class="card-tags">Poster Design, Motion,<br>Adobe Illustrator</p>
+          <a href="#" class="card-view">View <span class="v-arr">→</span></a>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card c3">
+        <div class="card-img">
+          <div class="card-img-inner"></div>
+          <div class="card-overlay">
+            <div class="overlay-btn">View Project</div>
+          </div>
+        </div>
+        <div class="card-info">
+          <p class="card-title">Soft System</p>
+          <p class="card-tags">3D, Blender, Visual<br>Storytelling</p>
+          <a href="#" class="card-view">View <span class="v-arr">→</span></a>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="card c4">
+        <div class="card-img">
+          <div class="card-img-inner"></div>
+          <div class="card-overlay">
+            <div class="overlay-btn">View Project</div>
+          </div>
+        </div>
+        <div class="card-info">
+          <p class="card-title">Grid Pulse</p>
+          <p class="card-tags">Editorial, InDesign,<br>Typography</p>
+          <a href="#" class="card-view">View <span class="v-arr">→</span></a>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="card c5">
+        <div class="card-img">
+          <div class="card-img-inner"></div>
+          <div class="card-overlay">
+            <div class="overlay-btn">View Project</div>
+          </div>
+        </div>
+        <div class="card-info">
+          <p class="card-title">Void Form</p>
+          <p class="card-tags">Brand Identity, Digital,<br>Art Direction</p>
+          <a href="#" class="card-view">View <span class="v-arr">→</span></a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="scroll-hint">
+      <span class="scroll-hint-line"></span>
+      Scroll to explore
+    </div>
+  </div>
+
+  <script>
+    // Custom cursor
+    const cur = document.getElementById('cur');
+    const ring = document.getElementById('cur-ring');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+    (function tick() {
+      rx += (mx - rx) * 0.14;
+      ry += (my - ry) * 0.14;
+      cur.style.left = mx + 'px'; cur.style.top = my + 'px';
+      ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+      requestAnimationFrame(tick);
+    })();
+
+    // Horizontal scroll with mouse wheel on right panel
+    const panel = document.getElementById('rightPanel');
+    panel.addEventListener('wheel', e => {
+      e.preventDefault();
+      panel.scrollLeft += e.deltaY * 1.2;
+    }, { passive: false });
+  </script>
+
+</body>
 </html>
+
