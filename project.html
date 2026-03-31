@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Project — Adrian</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="project.css">
+</head>
+<body>
+
+  <div id="cur"></div>
+  <div id="cur-ring"></div>
+
+  <!-- NAV -->
+  <nav class="p-nav">
+    <a href="index.html" class="p-nav-logo">AD</a>
+    <span class="p-nav-num" id="navNum">01 / 05</span>
+    <a href="index.html" class="p-back">Back to Work</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="p-hero">
+    <div class="p-hero-bg" id="heroBg"></div>
+    <div class="p-hero-noise"></div>
+    <div class="p-hero-content">
+      <div class="p-eyebrow">
+        <span class="p-num" id="heroNum">01</span>
+        <div class="p-divider"></div>
+        <span class="p-category" id="heroCategory">Branding</span>
+      </div>
+      <h1 class="p-title" id="heroTitle">Neon Roots</h1>
+      <div class="p-tags" id="heroTags"></div>
+    </div>
+    <div class="p-scroll-hint">
+      <div class="p-scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- HERO VISUAL -->
+  <div class="p-visual-hero">
+    <div class="p-visual-hero-inner" id="heroVisual"></div>
+    <div class="p-visual-overlay"></div>
+  </div>
+
+  <!-- INFO -->
+  <section class="p-info reveal">
+    <div class="p-desc-col">
+      <p class="p-desc-lead" id="descLead">A bold brand system built for the streets.</p>
+      <p class="p-desc" id="descBody">
+        Every element was designed to feel raw and intentional — from the mark to the typography system. The project pushed the limits of how a brand can feel both underground and timeless.
+      </p>
+    </div>
+    <div class="p-meta" id="metaBlock">
+      <!-- populated by JS -->
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="p-gallery reveal reveal-d1">
+    <p class="p-gallery-label">Project Visuals</p>
+    <div class="p-gallery-grid">
+      <div class="p-gallery-item">
+        <div class="p-gallery-inner" id="gal1"></div>
+      </div>
+      <div class="p-gallery-item">
+        <div class="p-gallery-inner" id="gal2"></div>
+      </div>
+      <div class="p-gallery-item">
+        <div class="p-gallery-inner" id="gal3"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEXT PROJECT -->
+  <a class="p-next reveal" id="nextLink" href="#">
+    <div>
+      <p class="p-next-label">Next Project</p>
+      <p class="p-next-title" id="nextTitle">Horizon Drop</p>
+    </div>
+    <span class="p-next-arrow">→</span>
+  </a>
+
+  <!-- FOOTER -->
+  <footer class="p-footer">
+    <p class="p-footer-copy">© 2025 Adrian. All rights reserved.</p>
+    <nav class="p-footer-links">
+      <a href="#">Instagram</a>
+      <a href="#">Behance</a>
+      <a href="#">LinkedIn</a>
+    </nav>
+  </footer>
+
+  <script>
+    /* ── PROJECT DATA ── */
+    const projects = [
+      {
+        id: 1,
+        num: '01',
+        title: 'Neon Roots',
+        category: 'Brand Identity',
+        tags: ['Branding', 'Art Direction', 'Print Design', 'Illustrator'],
+        descLead: 'A bold brand system built for the streets.',
+        descBody: 'Neon Roots required a visual language that felt raw and alive — equal parts underground culture and refined craft. The logo system was built in Illustrator with a custom typeface treatment, paired with a high-contrast print collateral suite. Every touchpoint was designed to feel intentional and unforgettable.',
+        meta: {
+          Year: '2024',
+          Role: 'Brand Designer',
+          Tools: 'Adobe Illustrator, Photoshop, InDesign',
+          Deliverables: 'Logo, Brand Guidelines, Print Collateral'
+        },
+        gradient: 'linear-gradient(170deg, #ff6b35 0%, #f7c59f 40%, #1a0a00 100%)',
+        gal: [
+          'linear-gradient(145deg, #ff6b35 0%, #ff3a00 50%, #0d0300 100%)',
+          'linear-gradient(145deg, #f7c59f 0%, #e87a30 60%, #1a0500 100%)',
+          'linear-gradient(145deg, #ff8c55 0%, #c43a00 60%, #050100 100%)',
+        ]
+      },
+      {
+        id: 2,
+        num: '02',
+        title: 'Horizon Drop',
+        category: 'Poster Design',
+        tags: ['Motion', 'Poster', 'Adobe Illustrator', 'Art Direction'],
+        descLead: 'Where the sky meets the sea in still motion.',
+        descBody: 'Horizon Drop is a series of large-format posters exploring gradient colour theory and atmospheric depth. Inspired by long-exposure landscape photography, each piece layers colour bands to evoke a sense of suspended time. Created entirely in Illustrator, then adapted for digital motion loops.',
+        meta: {
+          Year: '2024',
+          Role: 'Art Director',
+          Tools: 'Adobe Illustrator, After Effects',
+          Deliverables: 'Poster Series, Motion Loops, Digital Assets'
+        },
+        gradient: 'linear-gradient(170deg, #74b9ff 0%, #f39c12 50%, #2c0845 100%)',
+        gal: [
+          'linear-gradient(145deg, #74b9ff 0%, #0984e3 60%, #0a0520 100%)',
+          'linear-gradient(145deg, #f39c12 0%, #e17055 50%, #2c0845 100%)',
+          'linear-gradient(145deg, #a29bfe 0%, #6c5ce7 50%, #1a0835 100%)',
+        ]
+      },
+      {
+        id: 3,
+        num: '03',
+        title: 'Soft System',
+        category: '3D & Motion',
+        tags: ['Blender', '3D Design', 'Visual Storytelling', 'Render'],
+        descLead: 'Organic geometry in a digital world.',
+        descBody: 'Soft System explores the tension between hard geometry and fluid organic form in 3D space. Modelled and rendered entirely in Blender, this project was an experiment in material behaviour — translucent solids, subsurface scattering, and soft lighting that blurs the line between physical and digital sculpture.',
+        meta: {
+          Year: '2025',
+          Role: '3D Designer',
+          Tools: 'Blender, Adobe Photoshop',
+          Deliverables: '3D Renders, Still Series, Animated Loop'
+        },
+        gradient: 'linear-gradient(170deg, #a8edea 0%, #fed6e3 50%, #0d1b2a 100%)',
+        gal: [
+          'linear-gradient(145deg, #a8edea 0%, #00cec9 60%, #0d1b2a 100%)',
+          'linear-gradient(145deg, #fed6e3 0%, #fd79a8 60%, #2d1030 100%)',
+          'linear-gradient(145deg, #81ecec 0%, #74b9ff 50%, #051020 100%)',
+        ]
+      },
+      {
+        id: 4,
+        num: '04',
+        title: 'Grid Pulse',
+        category: 'Editorial Design',
+        tags: ['Editorial', 'InDesign', 'Typography', 'Layout'],
+        descLead: 'A publication system driven by the grid.',
+        descBody: 'Grid Pulse is an editorial design project exploring modular layout systems in InDesign. Designed as a bi-annual design journal, each spread is governed by a strict 12-column grid — yet pushed to feel dynamic, energetic, and alive. The typographic hierarchy was built to guide the eye while rewarding exploration.',
+        meta: {
+          Year: '2024',
+          Role: 'Editorial Designer',
+          Tools: 'Adobe InDesign, Illustrator',
+          Deliverables: 'Magazine Layout, Typography System, Print-Ready PDF'
+        },
+        gradient: 'linear-gradient(170deg, #43e97b 0%, #38f9d7 40%, #0a1628 100%)',
+        gal: [
+          'linear-gradient(145deg, #43e97b 0%, #00b894 60%, #041510 100%)',
+          'linear-gradient(145deg, #38f9d7 0%, #00cec9 60%, #031515 100%)',
+          'linear-gradient(145deg, #55efc4 0%, #00b894 50%, #051210 100%)',
+        ]
+      },
+      {
+        id: 5,
+        num: '05',
+        title: 'Void Form',
+        category: 'Brand Identity',
+        tags: ['Brand Identity', 'Digital', 'Art Direction', 'Photoshop'],
+        descLead: 'Identity design in the space between.',
+        descBody: 'Void Form is a conceptual brand identity built around negative space and ambiguity. The mark dissolves into the background, asserting itself through absence rather than presence. Developed in Photoshop and Illustrator, the system includes a full visual language — type, colour, and spatial rules — that feels both minimal and deeply expressive.',
+        meta: {
+          Year: '2025',
+          Role: 'Brand Designer',
+          Tools: 'Adobe Photoshop, Illustrator',
+          Deliverables: 'Brand Identity, Logo System, Visual Guidelines'
+        },
+        gradient: 'linear-gradient(170deg, #f093fb 0%, #f5576c 40%, #0d0015 100%)',
+        gal: [
+          'linear-gradient(145deg, #f093fb 0%, #a855f7 60%, #0d0015 100%)',
+          'linear-gradient(145deg, #f5576c 0%, #c0392b 50%, #150005 100%)',
+          'linear-gradient(145deg, #fd79a8 0%, #e84393 60%, #100010 100%)',
+        ]
+      }
+    ];
+
+    /* ── RESOLVE CURRENT PROJECT ── */
+    const params = new URLSearchParams(window.location.search);
+    const id = parseInt(params.get('id')) || 1;
+    const p = projects.find(x => x.id === id) || projects[0];
+    const nextP = projects[id % projects.length]; // wraps around
+
+    /* ── POPULATE DOM ── */
+    document.title = `${p.title} — Adrian`;
+    document.getElementById('navNum').textContent = `${p.num} / 05`;
+    document.getElementById('heroNum').textContent = p.num;
+    document.getElementById('heroCategory').textContent = p.category;
+    document.getElementById('heroTitle').textContent = p.title;
+    document.getElementById('descLead').textContent = p.descLead;
+    document.getElementById('descBody').textContent = p.descBody;
+
+    // Tags
+    const tagsEl = document.getElementById('heroTags');
+    p.tags.forEach(t => {
+      const span = document.createElement('span');
+      span.className = 'p-tag';
+      span.textContent = t;
+      tagsEl.appendChild(span);
+    });
+
+    // Gradients
+    document.getElementById('heroBg').style.background = p.gradient;
+    document.getElementById('heroVisual').style.background = p.gradient;
+    document.getElementById('gal1').style.background = p.gal[0];
+    document.getElementById('gal2').style.background = p.gal[1];
+    document.getElementById('gal3').style.background = p.gal[2];
+
+    // Meta block
+    const metaEl = document.getElementById('metaBlock');
+    Object.entries(p.meta).forEach(([label, value]) => {
+      metaEl.innerHTML += `
+        <div class="p-meta-item">
+          <p class="p-meta-label">${label}</p>
+          <p class="p-meta-value">${value}</p>
+        </div>`;
+    });
+
+    // Next project
+    document.getElementById('nextTitle').textContent = nextP.title;
+    document.getElementById('nextLink').href = `project.html?id=${nextP.id}`;
+
+    /* ── SCROLL REVEAL ── */
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    /* ── CUSTOM CURSOR ── */
+    const cur = document.getElementById('cur');
+    const ring = document.getElementById('cur-ring');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+    (function tick() {
+      rx += (mx - rx) * 0.14;
+      ry += (my - ry) * 0.14;
+      cur.style.left = mx + 'px'; cur.style.top = my + 'px';
+      ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+      requestAnimationFrame(tick);
+    })();
+  </script>
+
+</body>
+</html>
