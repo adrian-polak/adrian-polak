@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Indesign — Adrian</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="project.css">
+</head>
+<body>
+
+  <div id="cur"></div>
+  <div id="cur-ring"></div>
+
+  <nav class="p-nav">
+    <a href="index.html" class="p-nav-logo">AD</a>
+    <span class="p-nav-num">03 / 05</span>
+    <a href="index.html" class="p-back">Back to Work</a>
+  </nav>
+
+  <section class="p-hero">
+    <div class="p-hero-bg" style="background: linear-gradient(170deg, #a8edea 0%, #fed6e3 50%, #0d1b2a 100%);"></div>
+    <div class="p-hero-noise"></div>
+    <div class="p-hero-content">
+      <div class="p-eyebrow">
+        <span class="p-num">03</span>
+        <div class="p-divider"></div>
+        <span class="p-category">3D & Motion</span>
+      </div>
+      <h1 class="p-title">InDesign</h1>
+      <div class="p-tags">
+        <span class="p-tag">Blender</span>
+        <span class="p-tag">3D Design</span>
+        <span class="p-tag">Visual Storytelling</span>
+        <span class="p-tag">Render</span>
+      </div>
+    </div>
+    <div class="p-scroll-hint">
+      <div class="p-scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <div class="p-visual-hero">
+    <div class="p-visual-hero-inner" style="background: linear-gradient(170deg, #a8edea 0%, #fed6e3 50%, #0d1b2a 100%);"></div>
+    <div class="p-visual-overlay"></div>
+  </div>
+
+  <section class="p-info reveal">
+    <div class="p-desc-col">
+      <p class="p-desc-lead">Organic geometry in a digital world.</p>
+      <p class="p-desc">
+        Soft System explores the tension between hard geometry and fluid organic form in 3D space. Modelled and rendered entirely in Blender, this project was an experiment in material behaviour — translucent solids, subsurface scattering, and soft lighting that blurs the line between physical and digital sculpture.
+      </p>
+    </div>
+    <div class="p-meta">
+      <div class="p-meta-item">
+        <p class="p-meta-label">Year</p>
+        <p class="p-meta-value">2025</p>
+      </div>
+      <div class="p-meta-item">
+        <p class="p-meta-label">Role</p>
+        <p class="p-meta-value">3D Designer</p>
+      </div>
+      <div class="p-meta-item">
+        <p class="p-meta-label">Tools</p>
+        <p class="p-meta-value">Blender, Adobe Photoshop</p>
+      </div>
+      <div class="p-meta-item">
+        <p class="p-meta-label">Deliverables</p>
+        <p class="p-meta-value">3D Renders, Still Series, Animated Loop</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="p-gallery reveal reveal-d1">
+    <p class="p-gallery-label">Project Visuals</p>
+    <div class="p-gallery-grid">
+      <div class="p-gallery-item">
+        <div class="p-gallery-inner" style="background: linear-gradient(145deg, #a8edea 0%, #00cec9 60%, #0d1b2a 100%);"></div>
+      </div>
+      <div class="p-gallery-item">
+        <div class="p-gallery-inner" style="background: linear-gradient(145deg, #fed6e3 0%, #fd79a8 60%, #2d1030 100%);"></div>
+      </div>
+      <div class="p-gallery-item">
+        <div class="p-gallery-inner" style="background: linear-gradient(145deg, #81ecec 0%, #74b9ff 50%, #051020 100%);"></div>
+      </div>
+    </div>
+  </section>
+
+  <a class="p-next reveal" href="grid-pulse.html">
+    <div>
+      <p class="p-next-label">Next Project</p>
+      <p class="p-next-title">Grid Pulse</p>
+    </div>
+    <span class="p-next-arrow">→</span>
+  </a>
+
+  <footer class="p-footer">
+    <p class="p-footer-copy">© 2025 Adrian. All rights reserved.</p>
+    <nav class="p-footer-links">
+      <a href="#">Instagram</a>
+      <a href="#">Behance</a>
+      <a href="#">LinkedIn</a>
+    </nav>
+  </footer>
+
+  <script>
+    const cur = document.getElementById('cur');
+    const ring = document.getElementById('cur-ring');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+    (function tick() {
+      rx += (mx - rx) * 0.14; ry += (my - ry) * 0.14;
+      cur.style.left = mx + 'px'; cur.style.top = my + 'px';
+      ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+      requestAnimationFrame(tick);
+    })();
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
