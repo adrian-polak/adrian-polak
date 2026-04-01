@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Adrian — Work With Me</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="work-with-me.css">
+</head>
+<body>
+
+  <div id="cur"></div>
+  <div id="cur-ring"></div>
+
+  <!-- LEFT PANEL -->
+  <div class="left">
+    <a href="index.html" class="logo">AD</a>
+
+    <div class="left-body">
+      <p class="greeting">Open for projects</p>
+      <h1 class="hero-title">
+        LET'S<br>
+        CREATE<span class="highlight">,</span><br>
+        TOGETHER
+      </h1>
+      <p class="bio">
+        Tell me about your project and I'll get back to you within 48 hours. I take on a limited number of projects each month to ensure every client gets my full attention.
+      </p>
+      <div class="avail-badge">
+        <span class="avail-dot"></span>
+        Available from May 2026
+      </div>
+      <a href="index.html" class="back-link">
+        <span class="arr">←</span>
+        Back to portfolio
+      </a>
+    </div>
+
+    <div class="socials">
+      <a href="#">Instagram</a>
+      <a href="#">Behance</a>
+      <a href="#">LinkedIn</a>
+    </div>
+
+    <span class="v-label">Portfolio 2026</span>
+  </div>
+
+  <!-- RIGHT PANEL -->
+  <div class="right" id="rightPanel">
+
+    <div class="right-top fade-up">
+      <span class="step-label">Contact form</span>
+      <div class="step-track">
+        <div class="step-dot active" id="dot1"></div>
+        <div class="step-dot" id="dot2"></div>
+        <div class="step-dot" id="dot3"></div>
+      </div>
+    </div>
+
+    <div id="formContent">
+
+      <!-- STEP 1: Project type -->
+      <div class="fade-up">
+        <h2 class="section-heading">WHAT ARE WE <span class="hl">BUILDING</span><span style="color:var(--highlight)">?</span></h2>
+        <div class="section-rule"></div>
+        <div class="type-grid" id="typeGrid">
+          <div class="type-card" data-type="brand">
+            <span class="type-icon">◈</span>
+            <div class="type-check">✓</div>
+            <p class="type-name">Brand Identity</p>
+            <p class="type-sub">Logo, visual system, guidelines</p>
+          </div>
+          <div class="type-card" data-type="editorial">
+            <span class="type-icon">▦</span>
+            <div class="type-check">✓</div>
+            <p class="type-name">Editorial</p>
+            <p class="type-sub">Magazines, books, layouts</p>
+          </div>
+          <div class="type-card" data-type="3d">
+            <span class="type-icon">◉</span>
+            <div class="type-check">✓</div>
+            <p class="type-name">3D / Motion</p>
+            <p class="type-sub">Blender renders & animations</p>
+          </div>
+          <div class="type-card" data-type="poster">
+            <span class="type-icon">◧</span>
+            <div class="type-check">✓</div>
+            <p class="type-name">Poster & Ads</p>
+            <p class="type-sub">Campaign visuals, advertising</p>
+          </div>
+          <div class="type-card" data-type="web">
+            <span class="type-icon">⊡</span>
+            <div class="type-check">✓</div>
+            <p class="type-name">Web / Digital</p>
+            <p class="type-sub">UI, social, digital assets</p>
+          </div>
+          <div class="type-card" data-type="other">
+            <span class="type-icon">⊕</span>
+            <div class="type-check">✓</div>
+            <p class="type-name">Something Else</p>
+            <p class="type-sub">Tell me more below</p>
+          </div>
+        </div>
+      </div>
+
+      <hr class="form-divider fade-up">
+
+      <!-- STEP 2: Budget -->
+      <div class="fade-up">
+        <h2 class="section-heading" style="font-size:clamp(26px,2.6vw,38px);">WHAT'S YOUR <span class="hl">BUDGET</span><span style="color:var(--highlight)">?</span></h2>
+        <div class="section-rule"></div>
+        <div class="budget-options" id="budgetOptions">
+          <div class="budget-pill" data-budget="<1k">Under €1k</div>
+          <div class="budget-pill" data-budget="1-3k">€1k – €3k</div>
+          <div class="budget-pill" data-budget="3-7k">€3k – €7k</div>
+          <div class="budget-pill" data-budget="7-15k">€7k – €15k</div>
+          <div class="budget-pill" data-budget="15k+">€15k+</div>
+          <div class="budget-pill" data-budget="unsure">Not sure yet</div>
+        </div>
+      </div>
+
+      <hr class="form-divider fade-up">
+
+      <!-- STEP 3: Details -->
+      <div class="fade-up">
+        <h2 class="section-heading" style="font-size:clamp(26px,2.6vw,38px);">YOUR <span class="hl">DETAILS</span></h2>
+        <div class="section-rule"></div>
+
+        <div class="field-row">
+          <div class="field">
+            <label>Name</label>
+            <input type="text" placeholder="Your name" id="inputName"/>
+          </div>
+          <div class="field">
+            <label>Email</label>
+            <input type="email" placeholder="hello@example.com" id="inputEmail"/>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label>Company / Brand</label>
+            <input type="text" placeholder="Optional" id="inputCompany"/>
+          </div>
+          <div class="field">
+            <label>Timeline</label>
+            <select id="inputTimeline">
+              <option value="" disabled selected>Select a timeframe</option>
+              <option>ASAP (within 2 weeks)</option>
+              <option>1 – 2 months</option>
+              <option>2 – 4 months</option>
+              <option>Longer term</option>
+              <option>Flexible</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Tell me about the project</label>
+          <textarea rows="5" placeholder="Share the context, goals, references or anything that would help me understand your vision..." id="inputMessage"></textarea>
+        </div>
+      </div>
+
+      <!-- SUBMIT ROW -->
+      <div class="submit-row fade-up">
+        <p class="submit-note">I read every message personally and reply within 48 hours.</p>
+        <button action="class="btn-submit" id="submitBtn">
+          <span>Send it over</span>
+          <span class="s-arr">→</span>
+        </button>
+      </div>
+
+    </div><!-- /formContent -->
+
+    <!-- SUCCESS STATE -->
+    <div class="success-screen" id="successScreen">
+      <div class="success-icon">✦</div>
+      <h2 class="success-title">MESSAGE<br>RECEIVED</h2>
+      <p class="success-msg">Thanks for reaching out. I'll review your project details and get back to you within 48 hours.</p>
+      <a href="index.html" class="back-link" style="margin-top:16px;">
+        <span class="arr">←</span>
+        Back to portfolio
+      </a>
+    </div>
+
+    <div class="scroll-hint" id="scrollHint">
+      <span class="scroll-hint-line"></span>
+      Scroll to fill in
+    </div>
+
+  </div><!-- /right -->
+
+  <script>
+    /* ── CURSOR ─────────────────────────────────────────── */
+    const cur  = document.getElementById('cur');
+    const ring = document.getElementById('cur-ring');
+    let mx=0, my=0, rx=0, ry=0;
+    document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; });
+    (function tick(){
+      rx += (mx-rx)*0.14; ry += (my-ry)*0.14;
+      cur.style.left  = mx+'px'; cur.style.top  = my+'px';
+      ring.style.left = rx+'px'; ring.style.top = ry+'px';
+      requestAnimationFrame(tick);
+    })();
+
+    /* cursor scale on hover */
+    document.querySelectorAll('a,button,.type-card,.budget-pill').forEach(el=>{
+      el.addEventListener('mouseenter', ()=>{ cur.style.transform='translate(-50%,-50%) scale(2.4)'; cur.style.background='var(--highlight)'; });
+      el.addEventListener('mouseleave', ()=>{ cur.style.transform='translate(-50%,-50%) scale(1)'; cur.style.background='var(--accent)'; });
+    });
+
+    /* ── STEP DOTS ──────────────────────────────────────── */
+    const panel = document.getElementById('rightPanel');
+    const dots  = [document.getElementById('dot1'),document.getElementById('dot2'),document.getElementById('dot3')];
+    panel.addEventListener('scroll', ()=>{
+      const h = panel.scrollHeight - panel.clientHeight;
+      const p = panel.scrollTop / h;
+      dots.forEach((d,i)=> d.classList.toggle('active', p >= i/2.2));
+    });
+
+    /* ── PROJECT TYPE CARDS ─────────────────────────────── */
+    document.querySelectorAll('.type-card').forEach(card=>{
+      card.addEventListener('click', ()=> card.classList.toggle('selected'));
+    });
+
+    /* ── BUDGET PILLS ───────────────────────────────────── */
+    document.querySelectorAll('.budget-pill').forEach(pill=>{
+      pill.addEventListener('click', ()=>{
+        document.querySelectorAll('.budget-pill').forEach(p=>p.classList.remove('selected'));
+        pill.classList.add('selected');
+      });
+    });
+
+    /* ── SUBMIT ─────────────────────────────────────────── */
+    document.getElementById('submitBtn').addEventListener('click', ()=>{
+      const name  = document.getElementById('inputName').value.trim();
+      const email = document.getElementById('inputEmail').value.trim();
+      if(!name || !email){
+        [document.getElementById('inputName'), document.getElementById('inputEmail')].forEach(inp=>{
+          if(!inp.value.trim()){ inp.style.borderColor='var(--highlight)'; setTimeout(()=>inp.style.borderColor='',1800); }
+        });
+        return;
+      }
+      document.getElementById('formContent').style.display='none';
+      document.getElementById('scrollHint').style.display='none';
+      const s = document.getElementById('successScreen');
+      s.style.display='flex';
+      panel.scrollTop=0;
+    });
+  </script>
+
+</body>
+</html>
