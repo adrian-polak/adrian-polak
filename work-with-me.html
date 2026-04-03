@@ -15,7 +15,7 @@
 
   <!-- LEFT PANEL -->
   <div class="left">
-    <a href="#" class="logo">AD</a>
+    <a href="index.html" class="logo">AD</a>
 
     <div class="left-body">
       <p class="greeting">Open for projects</p>
@@ -51,7 +51,6 @@
 
     <div class="right-top fade-up">
       <span class="step-label">Contact form</span>
-      <form action="https://formspree.io/f/xaqlbeba" method="POST">
       <div class="step-track">
         <div class="step-dot active" id="dot1"></div>
         <div class="step-dot" id="dot2"></div>
@@ -166,11 +165,10 @@
       <!-- SUBMIT ROW -->
       <div class="submit-row fade-up">
         <p class="submit-note">I read every message personally and reply within 48 hours.</p>
-        <button action="class="btn-submit" id="submitBtn">
+        <button class="btn-submit" id="submitBtn">
           <span>Send it over</span>
           <span class="s-arr">→</span>
         </button>
-      </form>
       </div>
 
     </div><!-- /formContent -->
@@ -235,20 +233,52 @@
     });
 
     /* ── SUBMIT ─────────────────────────────────────────── */
-    document.getElementById('submitBtn').addEventListener('click', ()=>{
+    document.getElementById('submitBtn').addEventListener('click', async ()=>{
       const name  = document.getElementById('inputName').value.trim();
       const email = document.getElementById('inputEmail').value.trim();
+
+      // Validate required fields
       if(!name || !email){
         [document.getElementById('inputName'), document.getElementById('inputEmail')].forEach(inp=>{
           if(!inp.value.trim()){ inp.style.borderColor='var(--highlight)'; setTimeout(()=>inp.style.borderColor='',1800); }
         });
         return;
       }
-      document.getElementById('formContent').style.display='none';
-      document.getElementById('scrollHint').style.display='none';
-      const s = document.getElementById('successScreen');
-      s.style.display='flex';
-      panel.scrollTop=0;
+
+      // Disable button while sending
+      const btn = document.getElementById('submitBtn');
+      btn.disabled = true;
+      btn.querySelector('span').textContent = 'Sending...';
+
+      try {
+        const response = await fetch('https://formspree.io/f/xaqlbeba', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            name:     name,
+            email:    email,
+            company:  document.getElementById('inputCompany').value.trim(),
+            timeline: document.getElementById('inputTimeline').value,
+            message:  document.getElementById('inputMessage').value.trim(),
+            budget:   document.querySelector('.budget-pill.selected')?.dataset.budget || 'Not selected',
+            types:    [...document.querySelectorAll('.type-card.selected')].map(c => c.dataset.type).join(', ') || 'Not selected'
+          })
+        });
+
+        if(response.ok){
+          document.getElementById('formContent').style.display='none';
+          document.getElementById('scrollHint').style.display='none';
+          const s = document.getElementById('successScreen');
+          s.style.display='flex';
+          panel.scrollTop=0;
+        } else {
+          btn.querySelector('span').textContent = 'Something went wrong — try again';
+          btn.disabled = false;
+        }
+      } catch(err) {
+        btn.querySelector('span').textContent = 'Network error — try again';
+        btn.disabled = false;
+      }
     });
   </script>
 
