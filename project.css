@@ -201,7 +201,26 @@ body:has(a:hover) #cur-ring { width: 54px; height: 54px; border-color: var(--acc
 }
 .p-visual-hero-inner {
   position: absolute; inset: 0;
+  overflow: hidden; /* ── CHANGED: keeps hero image clipped inside the section ── */
 }
+
+/* ══ ADDED ══════════════════════════════════════════════════════
+   Image placed on top of the gradient in the large hero visual.
+   Usage: <div class="p-visual-hero-inner"><img src="your-image.jpg" alt="..."></div>
+═══════════════════════════════════════════════════════════════ */
+.p-visual-hero-inner img {
+  position: absolute;
+  width: auto;
+  height: 90%;
+  max-width: 70%;
+  object-fit: contain;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  filter: drop-shadow(0 16px 48px rgba(0,0,0,0.5));
+}
+/* ══ END ADDED ══════════════════════════════════════════════════ */
 .p-visual-overlay {
   position: absolute; inset: 0;
   background: linear-gradient(to bottom, transparent 60%, var(--bg) 100%);
@@ -288,8 +307,30 @@ body:has(a:hover) #cur-ring { width: 54px; height: 54px; border-color: var(--acc
 .p-gallery-inner {
   position: absolute; inset: 0;
   transition: transform .65s cubic-bezier(.4,0,.2,1);
+  overflow: hidden; /* ── CHANGED: keeps images clipped inside their card ── */
 }
 .p-gallery-item:hover .p-gallery-inner { transform: scale(1.04); }
+
+/* ══ ADDED ══════════════════════════════════════════════════════
+   Image placed on top of the gradient background in gallery cards.
+   Usage: <div class="p-gallery-inner"><img src="your-image.jpg" alt="..."></div>
+═══════════════════════════════════════════════════════════════ */
+.p-gallery-inner img {
+  position: absolute;
+  width: 80%;
+  height: 85%;
+  object-fit: contain;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  filter: drop-shadow(0 8px 24px rgba(0,0,0,0.45));
+  transition: transform .65s cubic-bezier(.4,0,.2,1);
+}
+.p-gallery-item:hover .p-gallery-inner img {
+  transform: translate(-50%, -50%) scale(1.04);
+}
+/* ══ END ADDED ══════════════════════════════════════════════════ */
 
 /* ── NEXT PROJECT ── */
 .p-next {
